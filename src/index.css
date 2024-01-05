@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* Add this to your CSS or style definition */
+.custom-modal {
+  max-width: 90% !important;
+}
