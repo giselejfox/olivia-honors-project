@@ -1,21 +1,12 @@
 
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      {/* CHANGE THE BACKGROUND by changing the name of the file in the quotes here ---------***    (right now it's styrofoam-texture.jpeg)      */}
+      <div className="background-texture vw-100 vh-100" style={{background: `url("img/styrofoam-texture.jpeg")`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}></div>
     </div>
   );
 }
