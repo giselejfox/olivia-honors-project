@@ -21,8 +21,11 @@ function App() {
     // Tells the modal what to show, opens the modal, and changes the status of the icon to true so it turns from white to the image
     setModalContentTitle(contentTitle)
     setShowModal(true)
-    const newProjectIconStatusHolder = projectIconStatus[contentTitle] = true
-    setProjectIconStatus(newProjectIconStatusHolder)
+    // If the project hasn't been clicked before it updates the status to having been clicked
+    if (!projectIconStatus[contentTitle]) {
+      const newProjectIconStatusHolder = {...projectIconStatus, [contentTitle]: true}
+      setProjectIconStatus(newProjectIconStatusHolder)
+    }
   }
 
   // This takes the data we made and turns it into html
