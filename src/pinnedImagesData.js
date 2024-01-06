@@ -5,7 +5,7 @@ export const pinnedImagesData = [
         altText: "Liv pointing towards the camera",
         imageHeight: "300px",
         percentFromTop: "50%",
-        percentFromLeft: "90%"
+        percentFromLeft: "70%"
     },
     {
         title: "liv-in-blue",
