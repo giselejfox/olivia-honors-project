@@ -15,7 +15,7 @@ code {
 
 /* Add this to your CSS or style definition */
 .custom-modal {
-  max-width: 50% !important;
+  max-width: 90% !important;
 }
 
 .background-image {
@@ -27,6 +27,18 @@ code {
 
   position: relative;
 }
+
+
+/* WIDTH BREAKPOINTS */
+
+@media (min-width: 992px) { 
+  .custom-modal {
+    max-width: 50% !important;
+  }
+}
+
+
+/* HEIGHT BREAKPOINTS */
 
 /* sm >= 667 */
 @media (min-height: 667px) { 
