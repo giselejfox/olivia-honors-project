@@ -7,6 +7,7 @@ import BackgroundAndIcons from "./components/BackgroundAndIcons";
 
 import findIconHeight from "./helpers/findIconHeight";
 
+
 function App() {
 
   // ___ STATES ___
