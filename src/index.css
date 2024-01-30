@@ -45,17 +45,17 @@ code {
 }
 
 /* lg >= 1150 */
-@media (min-height: 1150px) { 
+/* @media (min-height: 1150px) { 
   .background-image {
     width: 2000px; 
     height: 1400px; 
   }
-}
+} */
 
 /* xl >= 1400 */
-@media (min-height: 1400px) { 
+/* @media (min-height: 1400px) { 
   .background-image {
     width: 2388px; 
     height: 1688px; 
   }
-}
+} */
