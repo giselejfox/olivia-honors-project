@@ -28,6 +28,12 @@ code {
   position: relative;
 }
 
+.topic-icon {
+  position: absolute;
+  z-index: 1;
+  cursor: pointer
+}
+
 
 /* WIDTH BREAKPOINTS */
 

@@ -3,10 +3,13 @@ import Modal from 'react-bootstrap/Modal';
 
 import ModalBodyContent from './ModalBodyContent';
 
+/*
+
+This build out the modal that pops up when you click on an icon
+
+*/
+
 export default function ProjectModal({showModal, modalContentTitle, handleCloseModal}) {
-
-  console.log(modalContentTitle)
-
     return (
       <Modal show={showModal} onHide={handleCloseModal} dialogClassName="custom-modal">
           <Modal.Body><ModalBodyContent contentTitle={modalContentTitle} /></Modal.Body>

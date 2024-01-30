@@ -5,15 +5,8 @@ export default function ImagePreloader({ imageNumber }) {
       const img = new Image();
       img.src = `img/background-gif/lofi-${imageNumber}.jpg`;
   
-      // Optional: You can add an event listener to handle the 'load' and 'error' events
-      img.onload = () => {
-        // console.log(`Image loaded: lofi-${imageNumber}.jpg`);
-        // Additional logic can be added here if needed
-      };
-  
       img.onerror = () => {
-        // console.error(`Error loading image: lofi-${imageNumber}.jpg`);
-        // Additional error handling can be added here
+        console.error(`Error loading image: lofi-${imageNumber}.jpg`);
       };
   
       // Cleanup: Remove event listeners and free up resources when component is unmounted

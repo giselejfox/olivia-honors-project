@@ -1,10 +1,16 @@
 import BottleContent from "./modal-contents/BottleContent"
-import LivPointingModalContent from "./modal-contents/LivPointingModalContent"
+
+/* 
+
+This is where you link the components that contain the writing contents (stored in the modal-contents
+folder) to an icon that's being clicked
+
+*/
 
 export default function ModalBodyContent({ contentTitle }) {
     return (
         <div>
-            {contentTitle === "record-player" && <BottleContent />}
+            {contentTitle === "bottle" && <BottleContent />}
         </div>
     )
 }
