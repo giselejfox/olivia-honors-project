@@ -21,7 +21,7 @@ code {
 .background-image {
   background-size: contain !important ;
 
-  /* xsm < 667 */
+  /* sm < 667 */
   width: 1100px; 
   height: 770px; 
 
@@ -40,7 +40,7 @@ code {
 
 /* HEIGHT BREAKPOINTS */
 
-/* sm >= 667 */
+/* md >= 667 & < 900 */
 @media (min-height: 667px) { 
   .background-image {
     width: 1400px; 
@@ -48,26 +48,10 @@ code {
   }
 }
 
-/* md >= 900 */
+/* lg >= 900 */
 @media (min-height: 900px) { 
   .background-image {
     width: 1700px; 
     height: 1190px; 
   }
 }
-
-/* lg >= 1150 */
-/* @media (min-height: 1150px) { 
-  .background-image {
-    width: 2000px; 
-    height: 1400px; 
-  }
-} */
-
-/* xl >= 1400 */
-/* @media (min-height: 1400px) { 
-  .background-image {
-    width: 2388px; 
-    height: 1688px; 
-  }
-} */
