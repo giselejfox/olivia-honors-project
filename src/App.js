@@ -13,28 +13,15 @@ function App() {
       return acc;
     }, {})
   );
-
   const [showModal, setShowModal] = useState(false)
   const [modalContentTitle, setModalContentTitle] = useState("")
   const [currentGifPic, setCurrentGifPic] = useState(1)
+  const [preLoadedImages, setPreLoadedImages] = useState([]);
 
-  // This useEffect takes care of the gif changing
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      // Update the state in a cyclic manner from 1 to 8
-      setCurrentGifPic(prevState => (prevState % 8) + 1);
-    }, 500);
-
-    // Clean up the interval when the component unmounts
-    return () => clearInterval(intervalId);
-  }, []); // Empty dependency array ensures the effect runs only once on mount
-  
 
   const handleCloseModal = () => setShowModal(false);
   const handleProjectClick = (contentTitle) => {
     // Tells the modal what to show, opens the modal, and changes the status of the icon to true so it turns from white to the image
-
-    console.log(contentTitle)
     setModalContentTitle(contentTitle)
     setShowModal(true)
     // If the project hasn't been clicked before it updates the status to having been clicked
@@ -43,6 +30,26 @@ function App() {
       setProjectIconStatus(newProjectIconStatusHolder)
     }
   }
+
+
+  // This useEffect takes care of the gif changing and preloading the images
+  useEffect(() => {
+    const numberOfImages = [1,2,3,4,5,6,7,8]
+    const preLoadedImagesArray = numberOfImages.map((num) => (
+      <ImagePreloader key={"image-preloader" + num} imageNumber={num} />
+    ));
+
+    setPreLoadedImages(preLoadedImagesArray);
+
+    const intervalId = setInterval(() => {
+      // Update the state in a cyclic manner from 1 to 8
+      setCurrentGifPic(prevState => (prevState % 8) + 1);
+    }, 500);
+
+    // Clean up the interval when the component unmounts
+    return () => clearInterval(intervalId);
+  }, []); // Empty dependency array ensures the effect runs only once on mount
+
 
   // This takes the data we made about the icons and turns it into html
   const pinnedImageElements = pinnedImagesData.map((imageData, key) => {
@@ -56,8 +63,7 @@ function App() {
     )  
   })
 
-  const numberOfImages = 8
-
+  
   return (
     <div className="App">
       <div className="background-image" style={{background: `url("img/background-gif/lofi-` + currentGifPic + `.jpg")`}}>{pinnedImageElements}</div>
@@ -65,9 +71,7 @@ function App() {
       <ProjectModal showModal={showModal} modalContentTitle={modalContentTitle} handleCloseModal={handleCloseModal} />
 
       {/* This preloads the 8 gif images */}
-      {[...Array(numberOfImages).keys()].map((index) => (
-        <ImagePreloader key={"image-preloader" + index} imageNumber={index + 1} />
-      ))}
+      {preLoadedImages}
     </div>
   );
 }
