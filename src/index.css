@@ -18,44 +18,53 @@ code {
   max-width: 50% !important;
 }
 
-.background-image {
+/* .background-image {
   background-size: contain !important ;
 
-  /* xsm < 667 */
   width: 1100px; 
   height: 770px; 
 
   position: relative;
+} */
+
+.background-div {
+  display: inline-block;
 }
 
+.background-gif {
+  height: 100vh;
+}
+
+
+
 /* sm >= 667 */
-@media (min-height: 667px) { 
+/* @media (min-height: 667px) { 
   .background-image {
     width: 1400px; 
     height: 980px; 
   }
-}
+} */
 
 /* md >= 900 */
-@media (min-height: 900px) { 
+/* @media (min-height: 900px) { 
   .background-image {
     width: 1700px; 
     height: 1190px; 
   }
-}
+} */
 
 /* lg >= 1150 */
-@media (min-height: 1150px) { 
+/* @media (min-height: 1150px) { 
   .background-image {
     width: 2000px; 
     height: 1400px; 
   }
-}
+} */
 
 /* xl >= 1400 */
-@media (min-height: 1400px) { 
+/* @media (min-height: 1400px) { 
   .background-image {
     width: 2388px; 
     height: 1688px; 
   }
-}
+} */

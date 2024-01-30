@@ -3,6 +3,7 @@ import { pinnedImagesData } from "./pinnedImagesData";
 
 import ProjectModal from "./components/ProjectModal";
 import ImagePreloader from "./components/ImagePreloader";
+import BackgroundGif from "./components/BackgroundGif";
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
   );
   const [showModal, setShowModal] = useState(false)
   const [modalContentTitle, setModalContentTitle] = useState("")
-  const [currentGifPic, setCurrentGifPic] = useState(1)
+  // const [currentGifPic, setCurrentGifPic] = useState(1)
   const [preLoadedImages, setPreLoadedImages] = useState([]);
 
 
@@ -40,33 +41,32 @@ function App() {
     ));
 
     setPreLoadedImages(preLoadedImagesArray);
-
-    const intervalId = setInterval(() => {
-      // Update the state in a cyclic manner from 1 to 8
-      setCurrentGifPic(prevState => (prevState % 8) + 1);
-    }, 500);
-
-    // Clean up the interval when the component unmounts
-    return () => clearInterval(intervalId);
   }, []); // Empty dependency array ensures the effect runs only once on mount
 
+  const windowHeight = window.innerHeight
 
   // This takes the data we made about the icons and turns it into html
   const pinnedImageElements = pinnedImagesData.map((imageData, key) => {
     return (
       <div onClick={() => handleProjectClick(imageData.title)} key={key + imageData.imageTitle} style={{position: "absolute", zIndex: '1', top:imageData.percentFromTop, left:imageData.percentFromLeft, cursor: "pointer"}}>
         {/* If the icon is labeled as having been clicked (projectIconStatus[title] = true) we show the image, otherwise the blue circle */}
-        {projectIconStatus[imageData.title] && <img style={{height: imageData.imageHeight}} src={"img/pinned-images/"+imageData.title+"-clicked.png"} alt={imageData.altText} /> }
-        {!projectIconStatus[imageData.title] && <img style={{height: imageData.imageHeight}} src={"img/pinned-images/"+imageData.title+"-unclicked.png"} alt={imageData.altText} /> }
+        {projectIconStatus[imageData.title] && <img style={{height: windowHeight * imageData.imageHeightMultiplier}} src={"img/pinned-images/"+imageData.title+"-clicked.png"} alt={imageData.altText} /> }
+        {!projectIconStatus[imageData.title] && <img style={{height: windowHeight * imageData.imageHeightMultiplier}} src={"img/pinned-images/"+imageData.title+"-unclicked.png"} alt={imageData.altText} /> }
         {/* {!projectIconStatus[imageData.title] && <div style={{height: imageData.imageHeight, width: imageData.imageHeight, backgroundColor: "blue", borderRadius:"50%"}}></div>} */}
       </div>
     )  
   })
 
-  
   return (
     <div className="App">
-      <div className="background-image" style={{background: `url("img/background-gif/lofi-` + currentGifPic + `.jpg")`}}>{pinnedImageElements}</div>
+      {/* <div className="background-div" style={{background: `url("img/background-gif/lofi-` + currentGifPic + `.jpg")`}}>{pinnedImageElements}</div> */}
+      <div className="background-div">
+        {/* <img className="background-gif" src="img/background-gif/lofi-1.jpg" alt="Sketch view of Liv at her sewing machine"/> */}
+          <BackgroundGif />
+          {pinnedImageElements}
+      </div>
+
+
 
       <ProjectModal showModal={showModal} modalContentTitle={modalContentTitle} handleCloseModal={handleCloseModal} />
 
