@@ -15,5 +15,47 @@ code {
 
 /* Add this to your CSS or style definition */
 .custom-modal {
-  max-width: 90% !important;
+  max-width: 50% !important;
+}
+
+.background-image {
+  background-size: contain !important ;
+
+  /* xsm < 667 */
+  width: 1100px; 
+  height: 770px; 
+
+  position: relative;
+}
+
+/* sm >= 667 */
+@media (min-height: 667px) { 
+  .background-image {
+    width: 1400px; 
+    height: 980px; 
+  }
+}
+
+/* md >= 900 */
+@media (min-height: 900px) { 
+  .background-image {
+    width: 1700px; 
+    height: 1190px; 
+  }
+}
+
+/* lg >= 1150 */
+@media (min-height: 1150px) { 
+  .background-image {
+    width: 2000px; 
+    height: 1400px; 
+  }
+}
+
+/* xl >= 1400 */
+@media (min-height: 1400px) { 
+  .background-image {
+    width: 2388px; 
+    height: 1688px; 
+  }
 }
